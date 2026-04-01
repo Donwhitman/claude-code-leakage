@@ -1,0 +1,19 @@
+name: Sync fork from upstream
+on:
+  schedule:
+    # 每天 UTC 03:17 运行一次
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync upstream -> fork
+        uses: aormsby/Fork-Sync-With-Upstream-action@v3
+        with:
+          upstream_sync_repo: claude-code-best/claude-code
+          upstream_sync_branch: main
+          target_sync_branch: main
+          target_repo_token: ${{ secrets.GITHUB_TOKEN }}
