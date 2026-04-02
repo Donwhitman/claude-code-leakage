@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Sync upstream -> fork
-        uses: aormsby/Fork-Sync-With-Upstream-action@v3
+        uses: aormsby/Fork-Sync-With-Upstream-action@v3.4.2
         with:
           upstream_sync_repo: claude-code-best/claude-code
           upstream_sync_branch: main
